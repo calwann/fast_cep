@@ -9,6 +9,11 @@ composer install
 
 Renomeie o arquivo ".env.example" para ".env".
 
+Inicie o servidor com o PHP.
+```bash
+php -S localhost:8000 -t public
+```
+
 ## Uso
 ### Consultar endereço
 Pesquisar CEP:
