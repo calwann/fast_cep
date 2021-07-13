@@ -37,12 +37,17 @@ class CepController extends Controller
     {
         //Acessa o site do Correios
         $html = $this->curl([
-            "url" => "https://buscacepinter.correios.com.br/app/endereco/carrega-cep-endereco.php?pagina=%2Fapp%2Fendereco%2Findex.php&cepaux=&mensagem_alerta=&endereco=" . $p . "&tipoCEP=ALL"
+            "url" => "https://buscacepinter.correios.com.br/app/endereco/carrega-cep-endereco.php",
+            "posts" => [
+                "pagina" => "/app/endereco/index.php",
+                "endereco" => urldecode($p),
+                "tipoCEP" => "ALL"
+            ]
         ]);
 
         $html = json_decode(str_replace("\n", '', substr($html, strpos($html, "{"), strlen($html))));
             $i = 0;
-            
+        //dd($html);
         foreach ($html->dados as $addres) {
 
             $logadouros = explode(" - ", $addres->logradouroDNEC, 2);
@@ -91,9 +96,14 @@ class CepController extends Controller
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $ck_file);
         curl_setopt($ch, CURLOPT_COOKIEFILE, $ck_file);
+        curl_setopt($ch, CURLOPT_POST, 1);
 
         if (isset($p["headers"])) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $p["headers"]);
+        }
+
+        if (isset($p["posts"])) {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $p["posts"]);
         }
 
         if (curl_exec($ch) === false) {

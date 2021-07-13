@@ -2,7 +2,12 @@
 Este projeto é uma API de consulta de cep e endereços utilizando os dados oficiais do correios.
 
 ## Instalação
+Use o gerenciador de pacotes [composer](https://getcomposer.org/) para instalar o Fast CEP.
+```bash
+composer install
+```
 
+Renomeie o arquivo ".env.example" para ".env".
 
 ## Uso
 ### Consultar endereço

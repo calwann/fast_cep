@@ -14,3 +14,7 @@
 */
 
 $router->get('/{address}', 'CepController@index');
+
+$router->get('/', function () {
+    return redirect('/Pra%C3%A7a%20da%20S%C3%A9%20lado%20%C3%ADmpar%20S%C3%A3o%20Paulo%20SP');
+});
