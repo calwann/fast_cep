@@ -1,11 +1,15 @@
 # Fast CEP
-Este projeto é uma API de consulta de cep e endereços utilizando o site do correios.
+Este projeto é uma API de consulta de cep e endereços utilizando os dados oficiais do correios.
 
-## Consultando endereço
-Exemplo de pesquisa por CEP:
+## Instalação
+
+
+## Uso
+### Consultar endereço
+Pesquisar CEP:
 localhost:8000/01001000
 
-Exemplo de pesquisa por outros dados:
+Pesquisar endereço:
 localhost:8000/Pra%C3%A7a%20da%20S%C3%A9%20lado%20%C3%ADmpar%20S%C3%A3o%20Paulo%20SP
 
 # Lumen PHP Framework
